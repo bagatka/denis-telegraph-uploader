@@ -68,7 +68,7 @@ export class TelegraphSdkService {
 
   public uploadFiles(files: Array<Blob>): Observable<Array<Array<{ src: string }>>> {
     // const url = `https://telegra.ph/upload`;
-    const url = 'http://localhost:5293/UploadFiles/upload';
+    const url = 'http://localhost:5000/UploadFiles/upload';
 
     const formRequests = files.map(file => {
       const requestFormData = new FormData();
