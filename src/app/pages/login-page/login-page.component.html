@@ -1,0 +1,30 @@
+<h1 class="title">App cannot work without an account</h1>
+
+<div class="buttons-block">
+  <button (click)="openDialog(loginTemplate)">Login</button>
+  <button (click)="openDialog(registrationTemplate)">Registration</button>
+</div>
+
+<ng-template #loginTemplate>
+  <div class="dialog">
+    <h1>Login</h1>
+
+    <form (ngSubmit)="onLoginSubmit()" class="dialog-form">
+      <input [formControl]="tokenFormControl" placeholder="Enter access token">
+      <button type="submit" [disabled]="tokenFormControl.invalid">Confirm</button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #registrationTemplate>
+  <div class="dialog">
+    <h1>Registration</h1>
+
+    <form [formGroup]="registrationFormGroup" (ngSubmit)="onRegistrationSubmit()" class="dialog-form">
+      <input formControlName="shortName" placeholder="Enter short name">
+      <input formControlName="authorName" placeholder="Enter author name">
+      <input formControlName="authorUrl" placeholder="Enter author url">
+      <button type="submit" [disabled]="registrationFormGroup.invalid">Confirm</button>
+    </form>
+  </div>
+</ng-template>

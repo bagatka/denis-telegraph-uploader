@@ -1,0 +1,22 @@
+<h1>Upload any .zip</h1>
+<input #fileInput type="file" accept=".zip" (change)="processArchive($event)">
+
+<app-sortable
+    [items]="archiveEntryItems"
+    (listSorted)="onListSorted($event)"
+>
+    <ng-template let-entryItem>
+        <div *ngIf="entryItem" class="sortable-list-item">
+            <div>
+            <span class="item-title">
+                {{ entryItem.entry.filename }}
+            </span>
+            </div>
+            <button type="button" class="icon-container" (click)="removeFile(entryItem)">
+                <i>X</i>
+            </button>
+        </div>
+    </ng-template>
+</app-sortable>
+
+<button (click)="uploadFiles()">Upload</button>

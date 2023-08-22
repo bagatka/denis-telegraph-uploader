@@ -1,0 +1,28 @@
+@use './../../../colors';
+
+:host {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sortable-list-item {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  color: wheat;
+  padding: 8px;
+  border-radius: 6px;
+
+  .item-title {
+    display: inline-block;
+    margin: 0;
+  }
+
+  i {
+    display: inline-block;
+  }
+}

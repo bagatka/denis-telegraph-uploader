@@ -1,0 +1,13 @@
+<h1>Pages:</h1>
+
+<div class="links">
+    <div *ngFor="let page of pages">
+        <a [href]="page.url" target="_blank">{{ page.title }}</a> Views: {{ page.views }}
+    </div>
+</div>
+
+<div class="buttons">
+    <button [disabled]="!previousPageExist" (click)="loadPages(currentPageIndex - 1)">Previous Page</button>
+    <button [disabled]="!nextPageExist" (click)="loadPages(currentPageIndex + 1)">Next Page</button>
+</div>
+

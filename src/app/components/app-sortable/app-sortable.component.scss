@@ -1,0 +1,22 @@
+.sortable-container {
+    width: 100%;
+
+    .sortable-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+
+        &>.movable {
+            cursor: grab;
+        }
+
+        &>.active {
+            opacity: 0;
+        }
+
+        &>.list-item {
+            position: relative;
+        }
+    }
+}

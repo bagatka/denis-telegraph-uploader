@@ -1,0 +1,20 @@
+<div class="sortable-container">
+    <ul class="sortable-list">
+        <li
+            *ngFor="let item of items; let i = index"
+            class="list-item"
+            [draggable]="isDraggable"
+            [ngClass]="{ 'active': i === currentDraggingIndex, 'movable': sortable }"
+            (dragover)="allowDrop($event, i)"
+            (dragstart)="onDragStart(i)"
+            (dragend)="onDrop()"
+        >
+            <ng-container
+                [ngTemplateOutlet]="itemTemplate"
+                [ngTemplateOutletContext]="{
+                    $implicit: item
+                }"
+            ></ng-container>
+        </li>
+    </ul>
+</div>

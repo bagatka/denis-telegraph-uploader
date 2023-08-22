@@ -1,0 +1,27 @@
+@use './../../../colors';
+
+:host {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  gap: 30px;
+}
+
+a {
+  color: colors.$mainColor
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-content: start;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
