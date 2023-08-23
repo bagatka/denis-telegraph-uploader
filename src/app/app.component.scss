@@ -2,3 +2,14 @@
   width: 100vw;
   height: 100vh;
 }
+
+.buttons {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.hidden {
+  visibility: hidden;
+}

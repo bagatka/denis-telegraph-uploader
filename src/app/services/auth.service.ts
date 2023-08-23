@@ -41,6 +41,6 @@ export class AuthService {
   }
 
   public userAuthenticated(): boolean {
-    return this.authenticated.value;
+    return this.authenticated.value && this.account !== undefined;
   }
 }

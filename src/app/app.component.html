@@ -1,2 +1,5 @@
-<button style="position: absolute" routerLink="">Home</button>
+<div *ngIf="userLoggedIn" class="buttons">
+  <button [routerLink]="['']" routerLinkActive="hidden" [routerLinkActiveOptions]="{exact: true}">Home</button>
+  <button (click)="logOut()">Log out</button>
+</div>
 <router-outlet></router-outlet>
