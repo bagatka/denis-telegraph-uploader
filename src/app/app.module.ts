@@ -1,3 +1,4 @@
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { APP_INITIALIZER, inject, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { tap } from 'rxjs';
@@ -16,6 +17,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { UploadPageComponent } from './pages/upload-page/upload-page.component';
 import { EditExistingPageComponent } from './pages/edit-existing-page/edit-existing-page.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,16 +26,17 @@ import { EditExistingPageComponent } from './pages/edit-existing-page/edit-exist
     UploadPageComponent,
     EditExistingPageComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        HotToastModule.forRoot(),
-        CommonModule,
-        ReactiveFormsModule,
-        FormsModule,
-        AppSortableComponent
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    HotToastModule.forRoot(),
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    AppSortableComponent,
+    ClipboardModule
+  ],
   providers: [
     TelegraphSdkService,
     {
@@ -46,7 +49,8 @@ import { EditExistingPageComponent } from './pages/edit-existing-page/edit-exist
         const accessToken = authService.getAccessToken();
 
         if (accessToken === null || accessToken === '') {
-          return () => { };
+          return () => {
+          };
         }
 
         return () => telegraphSdk
@@ -67,6 +71,7 @@ import { EditExistingPageComponent } from './pages/edit-existing-page/edit-exist
                   return;
                 }
 
+                accountInfoResponse.result.access_token = accessToken;
                 authService.saveAccessToken(accessToken);
                 authService.saveAccountInfo(accountInfoResponse.result);
                 console.log('Data saved');
@@ -83,4 +88,5 @@ import { EditExistingPageComponent } from './pages/edit-existing-page/edit-exist
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

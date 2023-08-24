@@ -1,4 +1,11 @@
-<h1 class="title">Welcome, <span>{{ account.short_name }}</span></h1>
+<div>
+  <h1 class="title">Welcome,
+    <div (click)="onAccessTokenCopied()" [cdkCopyToClipboard]="account.access_token!">
+      {{ account.short_name }}
+      <img src="assets/icons/copy.png">
+    </div>
+  </h1>
+</div>
 
 <div class="menu-buttons">
   <button (click)="navigateToUpload()">Upload new</button>

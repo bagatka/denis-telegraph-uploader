@@ -59,6 +59,8 @@ export class LoginPageComponent implements OnInit {
                                 return;
                             }
 
+                            accountInfo.access_token = accessToken;
+
                             this.authService.saveAccountInfo(accountInfo);
                             this.authService.saveAccessToken(accessToken);
                             window.open(accountInfo.auth_url, '_blank');

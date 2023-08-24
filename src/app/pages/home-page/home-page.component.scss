@@ -17,8 +17,23 @@
 
 .title {
   color: colors.$mainColor;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 
-  &>span {
+  & > div {
     font-style: italic;
+
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+
+    & > img {
+      width: 12px;
+      height: 12px;
+      right: -20px;
+      margin-bottom: 16px;
+    }
   }
 }
