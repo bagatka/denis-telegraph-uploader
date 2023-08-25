@@ -1,4 +1,5 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { BlobReader, BlobWriter, Entry, TextWriter, ZipReader } from '@zip.js/zip.js';
@@ -19,6 +20,7 @@ export class UploadPageComponent {
   @ViewChild('fileInput') private fileInput?: ElementRef<any>;
 
   public archiveEntryItems: Array<SortableEntryListItem> = [];
+  public pageTitleFormControl: FormControl = new FormControl<string | null>(null)
 
   public async processArchive(event: any): Promise<void> {
     const archive: File = event.target.files[0];
@@ -82,7 +84,7 @@ export class UploadPageComponent {
         next: files => {
           this.toastService.success('Files uploaded');
           const createPageRequest: CreatePageRequest = {
-            title: 'TODO: Edit',
+            title: this.pageTitleFormControl.value ?? 'TODO: Edit',
             access_token: this.authService.getAccessToken()!,
             content: files.map(f => {
               return {

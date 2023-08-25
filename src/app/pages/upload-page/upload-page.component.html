@@ -1,4 +1,7 @@
 <h1>Upload any .zip</h1>
+
+<input [formControl]="pageTitleFormControl" placeholder="Enter page title">
+
 <input #fileInput type="file" accept=".zip" (change)="processArchive($event)">
 
 <app-sortable
